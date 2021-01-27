@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for d in $(ls -d ~/all_git/*/); do
+  echo $d && git -C $d status -s
+done
+
+cd && pwd && dotbare status -s
