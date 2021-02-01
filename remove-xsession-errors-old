@@ -1,0 +1,3 @@
+#!/bin/sh
+
+[ -f ~/.xsession-errors.old ] && rm ~/.xsession-errors.old && echo "Done" || echo "Not found"
