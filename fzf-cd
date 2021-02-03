@@ -2,4 +2,4 @@
 
 #you should put this command on your shell config (like bashrc or zshrc) as alias
 #so that it can run in the current shell rather than subprocess of the shell which doesnt effect the current shell (it won't change directory)
-cd "$(du ~ | awk '{print $2}' | fzf --height 20%)"
+cd "$(find ~ -type d | fzf --height 20%)"
