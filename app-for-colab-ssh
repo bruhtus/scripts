@@ -1,0 +1,8 @@
+#!/bin/sh
+
+which vim || apt install vim ; which sshfs || apt install sshfs ; which htop || apt install htop
+
+printf "\nalias p='python3'\nalias pip='pip3'\nset -o vi\n" >> .bashrc ; printf "alias gss='git status -s'\nalias gp='git push'\nalias ggl='git pull origin master'" >> .bashrc
+
+chmod +w .bashrc
+source .bashrc
