@@ -8,4 +8,4 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 [ -f ~/.vimrc ] && mv ~/.vimrc ~/.vimrc.ori ; curl -fLo ~/.vimrc \
 	https://raw.githubusercontent.com/bruhtus/dotfiles/master/.vimrc
 
-vim -es -u .vimrc -i NONE -c 'PlugInstall' -c 'qa'
+vim -es -u ~/.vimrc -i NONE -c 'PlugInstall' -c 'qa'
