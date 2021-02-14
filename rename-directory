@@ -1,0 +1,7 @@
+#!/bin/sh
+
+c=$(ls -d */ | wc -l)
+minus=$(($c-1))
+for d in $(ls -d */); do
+	count=$(($c-$minus)) && minus=$(($minus-1)) && mv -v $d day-0$count
+done
