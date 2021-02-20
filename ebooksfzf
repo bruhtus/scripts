@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#there's still some error when opening a certain book (my assumption is a book that have a lot of images or links)
+#i'm not sure whether it's zathura problem or xargs problem or something else
+find ~/Documents/ebooks -type f | egrep '*\.pdf|*\.epub' | fzf --height 20% | xargs -or -I {} setsid -f zathura "{}"
