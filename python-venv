@@ -1,0 +1,30 @@
+#!/bin/sh
+
+gitroot="$(git rev-parse --show-toplevel 2> /dev/null)"
+trim="${gitroot%"${gitroot##*[!/]}"}"
+projectdir="${trim##*/}"
+mandir=$2 #create your own env name
+venvdir=$HOME/.cache/python-venv
+
+create() { \
+	mkdir -pv $venvdir
+	[ "$mandir" != "" ] && python -m venv $venvdir/$mandir 2> /dev/null || \
+	[ "$projectdir" != "" ] && python -m venv $venvdir/$projectdir 2> /dev/null || \
+	echo "Not git repo, please insert a name for virtual env (for example: python-venv create nganu)"
+}
+
+activate() { \
+	[ "$mandir" != "" ] && . $venvdir/$mandir/bin/activate 2> /dev/null || \
+	[ -d "$venvdir/$projectdir" ] && . $venvdir/$projectdir/bin/activate 2> /dev/null || \
+	echo "Python virtual environment not found"
+}
+
+if [ "$1" == "create" ]; then
+   	create
+elif [ "$1" == "activate" ]; then
+	activate
+elif [ "$1" == "deactivate" ]; then
+	$(deactivate 2> /dev/null ) || echo "Not in python virtual environment"
+else
+	echo "Please insert one of the command: create, activate, deactivate"
+fi
