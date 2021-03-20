@@ -1,0 +1,14 @@
+#!/bin/sh
+
+case "$1" in
+    'focus')
+            notify-send "Back to task"
+            sleep 3000 && notify-send "Take a break"
+            ;;
+    'break')
+            sleep 600 && notify-send "Back to task"
+            ;;
+    *)
+            echo "Usage: $0 { focus | break}"
+            ;;
+esac

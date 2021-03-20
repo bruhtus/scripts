@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for d in $(ls -d */); do
+	sudo chmod -R -x $d && chmod +x $d
+done
