@@ -1,1 +1,3 @@
 The script that i've made and tested (mostly).
+
+Make sure it's executable by change the scripts permission, the easier way is by using `chmod +x <script-name>`.
