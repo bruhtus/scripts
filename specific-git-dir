@@ -1,0 +1,25 @@
+#!/bin/sh
+# reference:
+# https://stackoverflow.com/a/30230735
+
+# STILL EXPERIMENTAL, USE IT AT YOUR OWN RISK
+# this script use three argument
+# first argument is the directory name to contain the git repo directory
+# second argument is your git repo directory or sub-directory
+# third argument is your git repo url
+
+# for example:
+# i want to clone my nvim directory which located in .config/nvim at my git repo
+# then what i need to do is
+# sh specific-git-dir nvim .config/nvim https://github.com/bruhtus/dotfiles.git
+
+mkdir -p $1; cd $_
+git init
+git config core.sparsecheckout true
+echo $2 >> .git/info/sparse-checkout
+git remote add -f origin $3
+# git pull origin master
+git checkout master
+pwd
+mv $2/* .
+rmdir -p $2; rm -rf .git
