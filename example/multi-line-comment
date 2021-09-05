@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo 'start'
+<<'COMMENTS'
+this is a multi-line comment in shell script.
+you can replace COMMENTS with anything you want.
+the COMMENTS word is not subjected to variable name,
+parameter expansion, arithmetic expansion, pathname expansion,
+or command substitution.
+ref: https://www.cyberciti.biz/faq/bash-comment-out-multiple-line-code/
+COMMENTS
+echo 'end'
